@@ -74,7 +74,7 @@ public class SynNumController {
     }
 
 
-    @GetMapping(value = "/update/setting")
+    @GetMapping(value = "/update/setting",produces = "text/html;charset=UTF-8")
     @ApiOperation("跟新enterpeiseSetting代码")
     public String update(@ApiParam("主机ip加端口或者域名") @RequestParam(value = "ip") @NotNull String ip ,
                          @ApiParam("enterpeiseSetting配置") @RequestParam(value = "setting") @NotNull String setting){
