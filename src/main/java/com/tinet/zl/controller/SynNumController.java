@@ -2,7 +2,6 @@ package com.tinet.zl.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sun.istack.internal.NotNull;
 import com.tinet.zl.entity.ApiResult;
 import com.tinet.zl.entity.CtiLinkEnterpriseSetting;
 import com.tinet.zl.service.SynNumService;
@@ -45,8 +44,8 @@ public class SynNumController {
      */
     @GetMapping(value = "/synNum",produces = "text/html;charset=UTF-8")
     @ApiOperation("boss号码没有问题,console少号码")
-    public String synNumber(@ApiParam("主机ip加端口或者域名") @RequestParam(value = "ip") @NotNull String ip ,
-                             @ApiParam("呼叫中心ID") @RequestParam(value = "enterpriseId") @NotNull String enterpriseId,
+    public String synNumber(@ApiParam("主机ip加端口或者域名") @RequestParam(value = "ip")  String ip ,
+                             @ApiParam("呼叫中心ID") @RequestParam(value = "enterpriseId") String enterpriseId,
                              @ApiParam(value = "中继群组名称,可不填",name = "name",defaultValue = "clid_trunk_group") @RequestParam(value = "name", required = true, defaultValue = "") String name){
         try {
             log.info("synNumber号码同步 参数:ip=[{}],enterpriseId=[{}],name=[{}]",ip,enterpriseId,name );
@@ -76,8 +75,8 @@ public class SynNumController {
 
     @GetMapping(value = "/update/setting",produces = "text/html;charset=UTF-8")
     @ApiOperation("跟新enterpeiseSetting代码")
-    public String update(@ApiParam("主机ip加端口或者域名") @RequestParam(value = "ip") @NotNull String ip ,
-                         @ApiParam("enterpeiseSetting配置") @RequestParam(value = "setting") @NotNull String setting){
+    public String update(@ApiParam("主机ip加端口或者域名") @RequestParam(value = "ip")  String ip ,
+                         @ApiParam("enterpeiseSetting配置") @RequestParam(value = "setting")  String setting){
         try {
             log.info("synNumber号码同步 参数:ip=[{}],setting[{}]",ip,setting);
             String url =  "http://"+ip+"/interface/v1/enterpriseSetting/update";
